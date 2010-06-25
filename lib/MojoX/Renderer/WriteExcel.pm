@@ -70,7 +70,7 @@ This method returns a handler for the Mojo renderer.
 
 =head1 AUTHOR
 
-Zak B. Elep, C<< <zakame at cpan.org> >>
+Zak B. Elep <zakame@cpan.org>
 
 =head1 BUGS
 
