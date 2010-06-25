@@ -116,6 +116,12 @@ L<http://search.cpan.org/dist/MojoX-Renderer-WriteExcel/>
 
 =head1 ACKNOWLEDGEMENTS
 
+Thanks to Graham Barr and his L<MojoX::Renderer::YAML> module, and
+Sebastian Riedel's core L<Mojolicious::Plugin::EpRenderer> for showing
+how to write renderers for Mojo!
+
+Inspiration for this renderer came from this mailing list thread:
+L<http://archives.free.net.ph/thread/20100625.092704.ed777265.en.html>
 
 =head1 LICENSE AND COPYRIGHT
 
