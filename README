@@ -1,55 +1,79 @@
-MojoX-Renderer-WriteExcel
+NAME
+    MojoX::Renderer::WriteExcel - emit Excel spreadsheets from Mojo
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+SYNOPSIS
+        use MojoX::Renderer::WriteExcel;
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+        sub startup {
+          my $self = shift;
 
+          $self->types->type(xls => 'application/vnd.ms-excel');
 
-INSTALLATION
+          my $self->renderer->add_handler(
+              xls => MojoX::Renderer::WriteExcel->new
+          );
+        }
 
-To install this module, run the following commands:
+DESCRIPTION
+    This renderer converts the "result" element in the stash to an Excel
+    spreadsheet. If the stash also has a "heading" element, the renderer
+    will also write headings in bold type for the columns in the
+    spreadsheet.
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+    "heading" is an arrayref, while "result" is an array of arrayrefs.
 
-SUPPORT AND DOCUMENTATION
+METHODS
+  new
+    This method returns a handler for the Mojo renderer.
 
-After installing, you can find documentation for this module with the
-perldoc command.
+AUTHOR
+    Zak B. Elep <zakame@cpan.org>
 
-    perldoc MojoX::Renderer::WriteExcel
+BUGS
+    Please report any bugs or feature requests to
+    "bug-mojox-renderer-writeexcel at rt.cpan.org", or through the web
+    interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MojoX-Renderer-WriteExce
+    l>. I will be notified, and then you'll automatically be notified of
+    progress on your bug as I make changes.
 
-You can also look for information at:
+SUPPORT
+    You can find documentation for this module with the perldoc command.
 
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=MojoX-Renderer-WriteExcel
+        perldoc MojoX::Renderer::WriteExcel
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/MojoX-Renderer-WriteExcel
+    You can also look for information at:
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/MojoX-Renderer-WriteExcel
+    *   RT: CPAN's request tracker
 
-    Search CPAN
-        http://search.cpan.org/dist/MojoX-Renderer-WriteExcel/
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=MojoX-Renderer-WriteExcel>
 
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/MojoX-Renderer-WriteExcel>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/MojoX-Renderer-WriteExcel>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/MojoX-Renderer-WriteExcel/>
+
+ACKNOWLEDGEMENTS
+    Thanks to Graham Barr and his MojoX::Renderer::YAML module, and
+    Sebastian Riedel's core Mojolicious::Plugin::EpRenderer for showing how
+    to write renderers for Mojo!
+
+    Inspiration for this renderer came from this mailing list thread:
+    <http://archives.free.net.ph/thread/20100625.092704.ed777265.en.html>
 
 LICENSE AND COPYRIGHT
+    Copyright 2010 Zak B. Elep.
 
-Copyright (C) 2010 Zak B. Elep
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of either: the GNU General Public License as published
+    by the Free Software Foundation; or the Artistic License.
 
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
-
-See http://dev.perl.org/licenses/ for more information.
+    See http://dev.perl.org/licenses/ for more information.
 
