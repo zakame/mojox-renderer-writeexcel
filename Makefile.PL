@@ -7,6 +7,10 @@ license  'perl';
 
 build_requires 'Test::More';
 
+resources repository => 'http://github.com/zakame/mojox-renderer-writeexcel.git';
+
+requires 'Spreadsheet::WriteExcel::Simple';
+
 auto_install;
 
 WriteAll;
