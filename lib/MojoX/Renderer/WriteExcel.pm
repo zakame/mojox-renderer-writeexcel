@@ -3,50 +3,70 @@ package MojoX::Renderer::WriteExcel;
 use warnings;
 use strict;
 
-=head1 NAME
-
-MojoX::Renderer::WriteExcel - The great new MojoX::Renderer::WriteExcel!
-
-=head1 VERSION
-
-Version 0.01
-
-=cut
+use Spreadsheet::WriteExcel::Simple;
 
 our $VERSION = '0.01';
 
+# Fry: Why would a robot need to drink?
+# Bender: I don't need to drink. I can quit anytime I want!
+sub new {
+    shift;    # ignore
+
+    return sub {
+        my ( $r, $c, $output ) = @_;
+
+        my $ss      = Spreadsheet::WriteExcel::Simple->new;
+        my $heading = $c->stash->{heading};
+        my $result  = $c->stash->{result};
+
+        if ( ref $heading ) {
+            $ss->write_bold_row($heading);
+        }
+
+        foreach my $data (@$result) {
+            $ss->write_row($data);
+        }
+
+        $$output = $ss->data;
+
+        return 1;
+    };
+}
+
+=head1 NAME
+
+MojoX::Renderer::WriteExcel - emit Excel spreadsheets from Mojo
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
     use MojoX::Renderer::WriteExcel;
 
-    my $foo = MojoX::Renderer::WriteExcel->new();
-    ...
+    sub startup {
+      my $self = shift;
 
-=head1 EXPORT
+      $self->types->type(xls => 'application/vnd.ms-excel');
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+      my $self->renderer->add_handler(
+          xls => MojoX::Renderer::WriteExcel->new
+      );
+    }
 
-=head1 SUBROUTINES/METHODS
+=head1 DESCRIPTION
 
-=head2 function1
+This renderer converts the C<result> element in the stash to an Excel
+spreadsheet.  If the stash also has a C<heading> element, the renderer
+will also write headings in bold type for the columns in the
+spreadsheet.
+
+C<heading> is an arrayref, while C<result> is an array of arrayrefs.
+
+=head1 METHODS
+
+=head2 new
+
+This method returns a handler for the Mojo renderer.
 
 =cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 
@@ -54,9 +74,12 @@ Zak B. Elep, C<< <zakame at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-mojox-renderer-writeexcel at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MojoX-Renderer-WriteExcel>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests to
+C<bug-mojox-renderer-writeexcel at rt.cpan.org>, or through the web
+interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MojoX-Renderer-WriteExcel>.
+I will be notified, and then you'll automatically be notified of
+progress on your bug as I make changes.
 
 
 
@@ -107,4 +130,4 @@ See http://dev.perl.org/licenses/ for more information.
 
 =cut
 
-1; # End of MojoX::Renderer::WriteExcel
+1;    # End of MojoX::Renderer::WriteExcel
