@@ -13,10 +13,10 @@ sub new {
     shift;    # ignore
 
     return sub {
-        my ( $r, $c, $output ) = @_;
+        my ( $r, $c, $output, $options ) = @_;
 
         # don't let MojoX::Renderer to encode output to string
-        $r->encoding('');
+        delete $options->{encoding};
 
         my $ss      = Spreadsheet::WriteExcel::Simple->new;
         my $heading = $c->stash->{heading};
