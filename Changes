@@ -1,5 +1,8 @@
 Revision history for MojoX-Renderer-WriteExcel
 
+0.03    2010-06-26
+        Delete encoding key in options hash
+
 0.02    2010-06-26
         Don't encode output to string
         Add example app
