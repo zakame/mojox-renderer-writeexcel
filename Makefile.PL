@@ -4,6 +4,8 @@ name     'MojoX-Renderer-WriteExcel';
 all_from 'lib/MojoX/Renderer/WriteExcel.pm';
 license  'perl';
 
+no_index directory => 'examples';
+
 build_requires 'Test::More';
 
 resources repository => 'git://github.com/zakame/mojox-renderer-writeexcel.git';
