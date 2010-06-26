@@ -2,6 +2,7 @@ Revision history for MojoX-Renderer-WriteExcel
 
 0.02    2010-06-26
         Don't encode output to string
+        Add example app
 
 0.01    2010-06-26
         First version, released on an unsuspecting world.
