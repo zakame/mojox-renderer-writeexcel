@@ -4,12 +4,11 @@ use Mojolicious::Lite;
 use MojoX::Renderer::WriteExcel;
 
 app->types->type(xls => 'application/vnd.ms-excel');
-app->renderer->add_handler(data => MojoX::Renderer::WriteExcel->new);
+app->renderer->add_handler(xls => MojoX::Renderer::WriteExcel->new);
 
 get '/demo.xls' => sub {
     my $self = shift;
     $self->render(
-        data    => 1,
         handler => 'xls',
         heading => [qw(Firstname Middle LastName)],
         result => [

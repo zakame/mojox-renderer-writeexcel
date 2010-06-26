@@ -15,6 +15,9 @@ sub new {
     return sub {
         my ( $r, $c, $output ) = @_;
 
+        # don't let MojoX::Renderer to encode output to string
+        $r->encoding('');
+
         my $ss      = Spreadsheet::WriteExcel::Simple->new;
         my $heading = $c->stash->{heading};
         my $result  = $c->stash->{result};
