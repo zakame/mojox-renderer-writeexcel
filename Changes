@@ -1,6 +1,9 @@
 Revision history for MojoX-Renderer-WriteExcel
 
-0.03    2010-06-26
+0.031   2010-06-30
+        Add Test::Mojo to prerequisites; no code change
+
+0.03    2010-06-29
         Delete encoding key in options hash
         Add a test
         Add plugin to simplify usage
