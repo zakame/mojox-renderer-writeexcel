@@ -2,6 +2,9 @@ Revision history for MojoX-Renderer-WriteExcel
 
 0.03    2010-06-26
         Delete encoding key in options hash
+        Add a test
+        Add plugin to simplify usage
+        Use Dist::Zilla to manage dist release
 
 0.02    2010-06-26
         Don't encode output to string
