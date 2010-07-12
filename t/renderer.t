@@ -6,8 +6,9 @@ use warnings;
 use Test::More tests => 6;
 use Test::Mojo;
 
-use FindBin;
-$ENV{MOJO_HOME} = "$FindBin::Bin";
+use File::Basename 'dirname';
+use File::Spec::Functions 'splitdir';
+$ENV{MOJO_HOME} = join '/', splitdir(dirname(__FILE__));
 require "$ENV{MOJO_HOME}/DemoXls";
 
 # Test
