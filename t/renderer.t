@@ -11,6 +11,8 @@ use File::Spec::Functions 'splitdir';
 $ENV{MOJO_HOME} = join '/', splitdir(dirname(__FILE__));
 require "$ENV{MOJO_HOME}/DemoXls";
 
+$ENV{MOJO_LOG_LEVEL} ||= "fatal";
+
 # Test
 my $t = Test::Mojo->new;
 
