@@ -1,5 +1,9 @@
 Revision history for MojoX-Renderer-WriteExcel
 
+0.04    2010-08-19
+        Add column width enhancement, thanks to Brian Dowling
+        <bdowling-dev@simplicity.net>
+
 0.032   2010-07-06
         Add more tests for coverage
 
