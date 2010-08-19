@@ -18,9 +18,9 @@ sub new {
         # don't let MojoX::Renderer to encode output to string
         delete $options->{encoding};
 
-        my $ss      = Spreadsheet::WriteExcel::Simple->new;
-        my $heading = $c->stash->{heading};
-        my $result  = $c->stash->{result};
+        my $ss       = Spreadsheet::WriteExcel::Simple->new;
+        my $heading  = $c->stash->{heading};
+        my $result   = $c->stash->{result};
         my $settings = $c->stash->{settings};
 
         if ( ref $heading ) {
@@ -28,8 +28,10 @@ sub new {
         }
 
         if ( ref $settings ) {
-            while ($settings->{column_width} and my ($col, $width) = each %{$settings->{column_width}}) {
-                $ss->sheet->set_column($col, $width);
+            while ( $settings->{column_width}
+                and my ( $col, $width ) = each %{ $settings->{column_width} } )
+            {
+                $ss->sheet->set_column( $col, $width );
             }
         }
 
