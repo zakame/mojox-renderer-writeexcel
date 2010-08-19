@@ -21,9 +21,16 @@ sub new {
         my $ss      = Spreadsheet::WriteExcel::Simple->new;
         my $heading = $c->stash->{heading};
         my $result  = $c->stash->{result};
+        my $settings = $c->stash->{settings};
 
         if ( ref $heading ) {
             $ss->write_bold_row($heading);
+        }
+
+        if ( ref $settings ) {
+            while ($settings->{column_width} and my ($col, $width) = each %{$settings->{column_width}}) {
+                $ss->sheet->set_column($col, $width);
+            }
         }
 
         foreach my $data (@$result) {
@@ -62,6 +69,13 @@ will also write headings in bold type for the columns in the
 spreadsheet.
 
 C<heading> is an arrayref, while C<result> is an array of arrayrefs.
+
+Optionally, a C<settings> parameter can be provided to set additional
+attributes in the Excel spreadsheet.  Currently 'column_width' is the
+only working attribute.  C<settings> is a hashref.  Column widths
+could be set by passing the settings to render such as:
+
+   settings => {column_width => {'A:A' => 10, 'B:B' => 25, 'C:D' => 40}}
 
 =head1 METHODS
 
