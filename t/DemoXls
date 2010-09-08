@@ -27,4 +27,20 @@ get '/demo_without_heading.xls' => sub {
     );
 };
 
+get '/demo_with_column_width.xls' => sub {
+    shift->render(
+        handler => 'xls',
+        result => [],
+        settings => {column_width => { 'A:A' => 10, 'B:B' => 25, 'C:D' => 40 }},
+    );
+};
+
+get '/demo_with_broken_column_width_1.xls' => sub {
+    shift->render(
+        handler => 'xls',
+        result => [],
+        settings => {column_width => undef},
+    );
+};
+
 app->start;
