@@ -30,10 +30,9 @@ sub new {
         if ( ref $settings ) {
             $c->render_exception("invalid column width")
               unless defined $settings->{column_width};
-            while ( $settings->{column_width}
-                and my ( $col, $width ) = each %{ $settings->{column_width} } )
-            {
-                $ss->sheet->set_column( $col, $width );
+            for my $col ( keys %{ $settings->{column_width} } ) {
+                $ss->sheet->set_column( $col,
+                    $settings->{column_width}->{$col} );
             }
         }
 
