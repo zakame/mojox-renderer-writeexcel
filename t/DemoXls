@@ -43,4 +43,14 @@ get '/demo_with_broken_column_width_1.xls' => sub {
     );
 };
 
+get '/demo_with_app_helper.xls' => sub {
+    shift->render_xls(
+        result => [
+            [qw(foo bar baz)],
+            [qw(lol wut bbq)],
+            [qw(kick ass module)],
+        ],
+    );
+};
+
 app->start;

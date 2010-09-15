@@ -13,8 +13,14 @@ use MojoX::Renderer::WriteExcel;
 sub register {
     my ( $self, $app ) = @_;
 
-    $app->types->type( xls => 'application/vnd.ms-excel');
+    $app->types->type( xls => 'application/vnd.ms-excel' );
     $app->renderer->add_handler( xls => MojoX::Renderer::WriteExcel->new );
+    $app->helper(
+        render_xls => sub {
+            my $self = shift;
+            $self->render( handler => 'xls', @_ );
+        }
+    );
 }
 
 1;
