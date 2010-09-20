@@ -17,8 +17,7 @@ sub register {
     $app->renderer->add_handler( xls => MojoX::Renderer::WriteExcel->new );
     $app->helper(
         render_xls => sub {
-            my $self = shift;
-            $self->render( handler => 'xls', @_ );
+            shift->render( handler => 'xls', @_ );
         }
     );
 }
