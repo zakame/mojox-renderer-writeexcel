@@ -7,15 +7,14 @@ BEGIN { $ENV{MOJO_POLL} = $ENV{MOJO_NO_IPV6} = 1 }
 use Mojo::IOLoop;
 use Test::More;
 
-# Make sure sockets are working
+# Make sure sockets are working, and parser is around
 plan skip_all => 'working sockets required for this test!'
   unless Mojo::IOLoop->new->generate_port;
-plan tests => 1;
-
 eval "use Spreadsheet::ParseExcel::Simple";
 plan skip_all =>
   "Spreadsheet::ParseExcel::Simple required for testing renderer correctness"
   if $@;
+plan tests => 1;
 
 use Mojolicious::Lite;
 use Test::Mojo;
