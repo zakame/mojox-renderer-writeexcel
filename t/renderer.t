@@ -15,6 +15,7 @@ plan skip_all => 'working sockets required for this test!'
   unless Mojo::IOLoop->new->generate_port;
 plan tests => 15;
 
+use Mojolicious 0.999930;
 use Mojolicious::Lite;
 use Test::Mojo;
 

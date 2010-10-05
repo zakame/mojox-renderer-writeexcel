@@ -1,6 +1,7 @@
 Revision history for MojoX-Renderer-WriteExcel
 
 {{$NEXT}}
+        Depend on Mojo 0.999930
         Add extra tests
         Add render_xls helper
 
