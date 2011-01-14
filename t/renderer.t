@@ -78,7 +78,7 @@ $t->get_ok('/demo_with_column_width.xls')->status_is(200)
   ->content_type_is('application/vnd.ms-excel');
 
 $t->get_ok('/demo_with_broken_column_width_1.xls')->status_is(500)
-  ->content_type_is('text/html');
+  ->content_type_is('text/html;charset=UTF-8');
 
 $t->get_ok('/demo_with_app_helper.xls')->status_is(200)
   ->content_type_is('application/vnd.ms-excel');
