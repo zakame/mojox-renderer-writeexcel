@@ -5,7 +5,7 @@ use strict;
 
 use Spreadsheet::WriteExcel::Simple;
 
-our $VERSION = '0.4';
+our $VERSION = '1.0';
 
 # Fry: Why would a robot need to drink?
 # Bender: I don't need to drink. I can quit anytime I want!
