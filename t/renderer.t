@@ -65,8 +65,7 @@ get '/demo_with_app_helper.xls' => sub {
 };
 
 # Test
-my $client = app->client;
-my $t      = Test::Mojo->new;
+my $t = Test::Mojo->new;
 
 $t->get_ok('/demo.xls')->status_is(200)
   ->content_type_is('application/vnd.ms-excel');
