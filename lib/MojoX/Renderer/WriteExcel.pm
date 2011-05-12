@@ -10,40 +10,39 @@ our $VERSION = '1.0';
 # Fry: Why would a robot need to drink?
 # Bender: I don't need to drink. I can quit anytime I want!
 sub new {
-    shift;    # ignore
+  shift;    # ignore
 
-    return sub {
-        my ( $r, $c, $output, $options ) = @_;
+  return sub {
+    my ($r, $c, $output, $options) = @_;
 
-        # don't let MojoX::Renderer to encode output to string
-        delete $options->{encoding};
+    # don't let MojoX::Renderer to encode output to string
+    delete $options->{encoding};
 
-        my $ss       = Spreadsheet::WriteExcel::Simple->new;
-        my $heading  = $c->stash->{heading};
-        my $result   = $c->stash->{result};
-        my $settings = $c->stash->{settings};
+    my $ss       = Spreadsheet::WriteExcel::Simple->new;
+    my $heading  = $c->stash->{heading};
+    my $result   = $c->stash->{result};
+    my $settings = $c->stash->{settings};
 
-        if ( ref $heading ) {
-            $ss->write_bold_row($heading);
-        }
+    if (ref $heading) {
+      $ss->write_bold_row($heading);
+    }
 
-        if ( ref $settings ) {
-            $c->render_exception("invalid column width")
-              unless defined $settings->{column_width};
-            for my $col ( keys %{ $settings->{column_width} } ) {
-                $ss->sheet->set_column( $col,
-                    $settings->{column_width}->{$col} );
-            }
-        }
+    if (ref $settings) {
+      $c->render_exception("invalid column width")
+        unless defined $settings->{column_width};
+      for my $col (keys %{$settings->{column_width}}) {
+        $ss->sheet->set_column($col, $settings->{column_width}->{$col});
+      }
+    }
 
-        foreach my $data (@$result) {
-            $ss->write_row($data);
-        }
+    foreach my $data (@$result) {
+      $ss->write_row($data);
+    }
 
-        $$output = $ss->data;
+    $$output = $ss->data;
 
-        return 1;
-    };
+    return 1;
+  };
 }
 
 =head1 NAME
