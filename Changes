@@ -1,8 +1,8 @@
 Revision history for MojoX-Renderer-WriteExcel
 
 {{$NEXT}}
-
-1.10    2011-05-18
+        Update for Mojo 1.22
+        fix releast-renderer.t
 
 1.0     2011-01-14
         Depend on Mojo 0.999930
