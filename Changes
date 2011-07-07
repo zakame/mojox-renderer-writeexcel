@@ -1,6 +1,7 @@
 Revision history for MojoX-Renderer-WriteExcel
 
 {{$NEXT}}
+        MojoX::Renderer::WriteExcel is deprecated
 
 1.11    2011-05-18
         Update for Mojo 1.22
