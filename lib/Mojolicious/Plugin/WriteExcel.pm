@@ -59,29 +59,59 @@ Mojolicious::Plugin::WriteExcel - Spreadsheet::WriteExcel plugin
 
 =head1 SYNOPSIS
 
-    # Mojolicious
-    $self->plugin('write_excel');
+  # Mojolicious
+  $self->plugin('write_excel');
 
-    # Mojolicious::Lite
-    plugin 'write_excel';
+  # Mojolicious::Lite
+  plugin 'write_excel';
+
+  # Render a spreadsheet
+  get '/example.xls' => sub {
+    shift->render(
+      handler => 'xls',
+      result  => [[qw(foo bar baz)], [qw(lol wut bbq)], [qw(kick ass module)],],
+    );
+  };
+
 
 =head1 DESCRIPTION
 
 L<Mojolicious::Plugin::WriteExcel> is a renderer for Excel spreadsheets.
+
+This plugin converts the C<result> element in the stash to an Excel
+spreadsheet.  If the stash also has a C<heading> element, the renderer
+will also write headings in bold type for the columns in the
+spreadsheet.
+
+C<heading> is an arrayref, while C<result> is an array of arrayrefs.
+
+Optionally, a C<settings> parameter can be provided to set additional
+attributes in the Excel spreadsheet.  Currently 'column_width' is the
+only working attribute.  C<settings> is a hashref.  Column widths
+could be set by passing the settings to render such as:
+
+   settings => {column_width => {'A:A' => 10, 'B:B' => 25, 'C:D' => 40}}
 
 =head1 METHODS
 
 L<Mojolicious::Plugin::WriteExcel> inherits all methods from
 L<Mojolicious::Plugin> and implements the following new ones.
 
+=head2 xls_renderer
+
+  $app->renderer->add_handler(xls => \&xls_renderer);
+
+Internal sub talking to L<Spreadsheet::WriteExcel::Simple> to render
+spreadsheets.
+
 =head2 C<register>
 
-    $plugin->register;
+  $plugin->register;
 
 Register renderer in L<Mojolicious> application.
 
 =head1 SEE ALSO
 
-L<Mojolicious>, L<MojoX::Renderer::WriteExcel>, L<http://mojolicious.org>.
+L<Mojolicious>, L<Spreadsheet::WriteExcel::Simple>, L<http://mojolicious.org>.
 
 =cut
