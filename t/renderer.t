@@ -1,8 +1,5 @@
 #!perl
 
-use strict;
-use warnings;
-
 # Cribbed from mojo's t/mojolicious/lite_app.t:
 # Disable epoll, kqueue and IPv6
 BEGIN { $ENV{MOJO_POLL} = $ENV{MOJO_NO_IPV6} = 1 }
