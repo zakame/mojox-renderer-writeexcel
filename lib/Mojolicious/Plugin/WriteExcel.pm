@@ -117,6 +117,15 @@ spreadsheets.
 
 Register renderer in L<Mojolicious> application.
 
+=head1 ACKNOWLEDGEMENTS
+
+Thanks to Graham Barr and his L<MojoX::Renderer::YAML> module, and
+Sebastian Riedel's core L<Mojolicious::Plugin::EpRenderer> for showing
+how to write renderers for L<Mojolicious>!
+
+Inspiration for this renderer came from this mailing list thread:
+L<http://www.mail-archive.com/plug@lists.linux.org.ph/msg21881.html>
+
 =head1 SEE ALSO
 
 L<Mojolicious>, L<Spreadsheet::WriteExcel::Simple>, L<http://mojolicious.org>.
