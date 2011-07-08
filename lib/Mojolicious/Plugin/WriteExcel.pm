@@ -55,7 +55,7 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::WriteExcel - Spreadsheet::WriteExcel plugin
+Mojolicious::Plugin::WriteExcel - write Excel spreadsheets from Mojolicious
 
 =head1 SYNOPSIS
 
@@ -76,7 +76,8 @@ Mojolicious::Plugin::WriteExcel - Spreadsheet::WriteExcel plugin
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Plugin::WriteExcel> is a renderer for Excel spreadsheets.
+L<Mojolicious::Plugin::WriteExcel> is a plugin for writing Excel
+spreadsheets.
 
 This plugin converts the C<result> element in the stash to an Excel
 spreadsheet.  If the stash also has a C<heading> element, the renderer
