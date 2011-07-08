@@ -1,6 +1,8 @@
 Revision history for MojoX-Renderer-WriteExcel
 
 {{$NEXT}}
+
+1.12    2011-07-08
         This dist is deprecated in favor of new Mojolicious-Plugin-WriteExcel
 
 1.11    2011-05-18
