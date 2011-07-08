@@ -88,16 +88,23 @@ C<heading> is an arrayref, while C<result> is an array of arrayrefs.
 Optionally, a C<settings> parameter can be provided to set additional
 attributes in the Excel spreadsheet.  Currently 'column_width' is the
 only working attribute.  C<settings> is a hashref.  Column widths
-could be set by passing the settings to render such as:
+could be set by passing the settings to C<render>:
 
-   settings => {column_width => {'A:A' => 10, 'B:B' => 25, 'C:D' => 40}}
+  get '/colwidth.xls' => sub {
+    shift->render(
+      handler  => 'xls',
+      result   => [['small'], ['medium'], ['large']],
+      settings => {column_width => {'A:A' => 10, 'B:B' => 25, 'C:D' => 40}},
+    );
+  };
+  settings => {column_width => {'A:A' => 10, 'B:B' => 25, 'C:D' => 40}}
 
 =head1 METHODS
 
 L<Mojolicious::Plugin::WriteExcel> inherits all methods from
 L<Mojolicious::Plugin> and implements the following new ones.
 
-=head2 xls_renderer
+=head2 C<xls_renderer>
 
   $app->renderer->add_handler(xls => \&xls_renderer);
 
