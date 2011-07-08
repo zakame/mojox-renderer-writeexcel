@@ -1,6 +1,8 @@
-Revision history for MojoX-Renderer-WriteExcel
+Revision history for Mojolicious-Plugin-WriteExcel (formerly known as
+MojoX-Renderer-WriteExcel)
 
 {{$NEXT}}
+        Bring some docs back
 
 2.00    2011-07-08
         MojoX::Renderer::WriteExcel is deprecated
