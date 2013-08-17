@@ -14,6 +14,9 @@ sub xls_renderer {
   # don't let MojoX::Renderer to encode output to string
   delete $options->{encoding};
 
+  # tell the renderer we're not html
+  $options->{format} = 'xls';
+
   my $ss       = Spreadsheet::WriteExcel::Simple->new;
   my $heading  = $c->stash->{heading};
   my $result   = $c->stash->{result};
@@ -36,6 +39,8 @@ sub xls_renderer {
   }
 
   $$output = $ss->data;
+
+  return 1;
 }
 
 sub register {
