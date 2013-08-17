@@ -136,6 +136,13 @@ how to write renderers for L<Mojolicious>!
 Inspiration for this renderer came from this mailing list thread:
 L<http://www.mail-archive.com/plug@lists.linux.org.ph/msg21881.html>
 
+=head1 LICENSE
+
+Copyright 2013 Zak B. Elep
+
+This library is free software; yu can redistribute it and/or modify it
+under the same terms as Perl itself.
+
 =head1 SEE ALSO
 
 L<Mojolicious>, L<Spreadsheet::WriteExcel::Simple>, L<http://mojolicious.org>.
