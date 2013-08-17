@@ -123,6 +123,10 @@ spreadsheets.
 
 Register renderer in L<Mojolicious> application.
 
+=head1 AUTHOR
+
+Zak B. Elep, E<lt>zakame@cpan.orgE<gt>
+
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to Graham Barr and his L<MojoX::Renderer::YAML> module, and
