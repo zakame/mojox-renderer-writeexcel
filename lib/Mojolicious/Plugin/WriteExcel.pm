@@ -125,7 +125,7 @@ Register renderer in L<Mojolicious> application.
 
 =head1 AUTHOR
 
-Zak B. Elep, E<lt>zakame@cpan.orgE<gt>
+Zak B. Elep <zakame@cpan.org>
 
 =head1 ACKNOWLEDGEMENTS
 
