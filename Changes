@@ -3,6 +3,10 @@ MojoX-Renderer-WriteExcel)
 
 {{$NEXT}}
 
+2.03 2014-12-08T10:05:37Z
+        Remove use of Mojo::IOLoop for test, Closes #1
+        Switch build to Minilla
+
 2.02    2013-08-17
         Fix output format to work on newer Mojo
         Switch build to Dist::Milla

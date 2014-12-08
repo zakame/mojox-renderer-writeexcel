@@ -3,7 +3,7 @@ package Mojolicious::Plugin::WriteExcel;
 use Mojo::Base 'Mojolicious::Plugin';
 use Spreadsheet::WriteExcel::Simple;
 
-our $VERSION = '2.02';
+our $VERSION = '2.03';
 
 # You just have to give guys a chance. Sometimes you meet a guy and
 # think he's a pig, but then later on you realize he actually has a
