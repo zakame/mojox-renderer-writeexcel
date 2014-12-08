@@ -4,7 +4,7 @@
       "Zak B. Elep <zakame@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.3, Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Minilla/v2.3.0, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -20,18 +20,24 @@
          "inc",
          "share",
          "eg",
-         "examples"
+         "examples",
+         "author",
+         "builder"
       ]
    },
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.025"
+            "Module::Build::Tiny" : "0.035"
          }
       },
       "develop" : {
          "requires" : {
-            "Test::Pod" : "1.41"
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion::Fast" : "0.04",
+            "Test::PAUSE::Permissions" : "0.04",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
          }
       },
       "runtime" : {
@@ -46,7 +52,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/zakame/mojox-renderer-writeexcel/issues"
@@ -54,7 +60,7 @@
       "homepage" : "https://github.com/zakame/mojox-renderer-writeexcel",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/zakame/mojox-renderer-writeexcel.git",
+         "url" : "git://github.com/zakame/mojox-renderer-writeexcel.git",
          "web" : "https://github.com/zakame/mojox-renderer-writeexcel"
       }
    },
@@ -63,4 +69,3 @@
       "Zak B. Elep <zakame@zakame.net>"
    ]
 }
-

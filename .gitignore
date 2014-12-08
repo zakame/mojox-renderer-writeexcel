@@ -13,3 +13,4 @@ Mojolicious-Plugin-WriteExcel-*
 /Mojolicious-Plugin-WriteExcel-*
 /.build
 !META.json
+!LICENSE
