@@ -42,13 +42,13 @@
       },
       "runtime" : {
          "requires" : {
-            "Mojolicious" : "0.999930",
-            "Spreadsheet::WriteExcel::Simple" : "0"
+            "Mojolicious" : "4.0",
+            "Spreadsheet::WriteExcel::Simple" : "1.04"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0"
+            "Test::More" : "0.98"
          }
       }
    },
@@ -64,7 +64,7 @@
          "web" : "https://github.com/zakame/mojox-renderer-writeexcel"
       }
    },
-   "version" : "2.03",
+   "version" : "2.04",
    "x_contributors" : [
       "Zak B. Elep <zakame@zakame.net>"
    ]
