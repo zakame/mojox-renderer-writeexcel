@@ -27,7 +27,7 @@ sub xls_renderer {
   }
 
   if (ref $settings) {
-    $c->render_exception("invalid column width")
+    $c->reply->exception("invalid column width")
       unless defined $settings->{column_width};
     for my $col (keys %{$settings->{column_width}}) {
       $ss->sheet->set_column($col, $settings->{column_width}->{$col});
