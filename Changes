@@ -3,6 +3,10 @@ MojoX-Renderer-WriteExcel)
 
 {{$NEXT}}
 
+2.05 2015-02-28T06:38:01Z
+        Use reply->exception helper, thanks to Bryan Paxton
+        Bump Mojo requirement to 5.73 per above
+
 2.04 2014-12-10T07:48:21Z
         Require Mojo 4.0 or newer, Closes #2
 
